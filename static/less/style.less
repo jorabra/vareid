@@ -1,0 +1,74 @@
+@import "variables.less";
+@import "mixins.less";
+
+/***********************/
+/*    Sticky Footer    */
+/***********************/
+
+@footer-height: 20rem;
+
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    height: auto;
+    min-height: 100%;
+    margin: 0 auto -@footer-height;
+    padding: 0 0 @footer-height;
+}
+
+#footer {
+  height: @footer-height;
+}
+
+/***********************/
+/*  End Sticky Footer  */
+/***********************/
+
+body {
+    font-family: @font-family;
+    background-color: @body-color;
+}
+
+h2 {
+    color: @font-color;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+h3 {
+    color: @font-color;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+blockquote {
+    color: @font-color;
+    font-size: 2.5rem;
+    font-style: italic;
+    letter-spacing: 0;
+    line-height: 1.7;
+}
+
+p {
+    color: @font-color;
+    font-size: 1.4rem;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+
+a {
+    color: @font-color;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    letter-spacing: 0;
+    line-height: 1.5;
+
+    &:hover {
+        color: @link-hover-color;
+        text-decoration: none;
+    }
+}

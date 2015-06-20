@@ -1,0 +1,303 @@
+
+@import "variables.less";
+@import "mixins.less";
+
+
+@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+
+
+html {
+    overflow-y: scroll;
+    height: 100%;
+
+    body {
+        height: 100%;
+    }
+}
+
+body {
+    font-family: @font-family;
+    font-size: 20px;
+    line-height: 1.5em;
+    color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: @font-family;
+    font-weight: bold;
+}
+
+a {
+    color: @link-color;
+
+    &:hover {
+        color: @link-hover-color;
+        text-decoration: none;
+    }
+}
+
+
+#content {
+    margin-top: 30px;
+}
+
+.ion-social-github:before,
+.ion-social-twitter:before,
+.ion-social-linkedin:before,
+.ion-social-instagram:before,
+.ion-social-googleplus:before {
+    padding: 0 10px;
+    font-size: 40px;
+
+    @media (min-width: 768px) {
+        padding: 0 18px;
+    }
+}
+
+.social-icons {
+    a {
+        text-decoration: none;
+        transition: text-shadow 0.3s ease;
+
+        &:hover, &:focus {
+            color: @link-color;
+            text-decoration: none;
+        }
+        &:hover {
+            text-shadow: 0px 0px 3px @link-color;
+
+        }
+    }
+}
+
+.icons-align {
+    height: 100px;
+    text-align: center;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+
+    }
+    i {
+        vertical-align: middle;
+    }
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    /*height: 100%;*/
+    /* Negative indent footer by its height */
+    margin: 0 auto -100px;
+    /* Pad bottom by footer height */
+    padding: 0 0 150px;
+}
+
+.txtcenter {
+    text-align: center;
+}
+
+
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 100px;
+    background-color: #e8e8e8;
+    box-shadow: 2px 0px 3px 0px #888888;
+}
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+
+.nav-links {
+    @media (min-width: 768px) {
+        float: right!important;
+    }
+
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float: none;
+
+    >li {
+        float: left;
+
+        >a {
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        &.active {
+            >a {
+                border-radius: 5px 5px 0 0;
+                border-bottom: 3px solid @link-hover-color;
+            }
+        }
+    }
+
+    >li + li {
+        margin-left: 2px;
+    }
+
+}
+
+.page-header {
+    margin-top: 0;
+    padding-top: 10px;
+
+    h1 {
+        letter-spacing: 2px;
+        font-size: 22px;
+        padding-top: 5px;
+        padding-bottom: 0px;
+        margin-bottom: 5px;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    a {
+        color: #444;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: @link-hover-color;
+        }
+    }
+
+    @media (min-width: 481px) {
+        h1 {
+            font-size: 32px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding-top: 40px;
+
+        h1 {
+            letter-spacing: 2px;
+            font-size: 28px;
+            padding-top: 7px;
+            padding-bottom: 0px;
+            margin-bottom: 7px;
+            text-align: left;
+        }
+    }
+}
+
+.splash {
+    width: auto;
+    max-width: 95%;
+    margin: auto;
+    text-align: center;
+    font: normal 25px/30px @font-family;
+
+    @media (min-width: 768px) {
+        max-width: 85%;
+    }
+
+    p {
+        margin-bottom: 24px;
+    }
+}
+
+
+.container-narrow {
+    >hr {
+        margin: 30px 0;
+    }
+}
+
+
+.section-listing {
+    margin-bottom: -50px;
+
+    ol {
+        list-style-type: none;
+        padding: 0;
+
+        @w-listing-item: 700px/2;
+        @w-listing-col-padding: 50px;
+
+        li {
+            height: 100px;
+            width: 70%;
+            min-width: 250px;
+            text-align: center;
+            margin: auto;
+
+            a {
+                font: normal 23px/32px @font-family;
+                color: #222222;
+                display: block;
+
+                &:hover {
+                    color: @link-hover-color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            li {
+                float: left;
+                width: @w-listing-item - (@w-listing-col-padding / 2);
+                height: 150px;
+                margin: 0;
+                text-align: center;
+                font-style: italic;
+
+                &:nth-child(odd) {
+                    margin-right: @w-listing-col-padding / 2;
+                }
+
+                &:nth-child(even) {
+                    margin-left: @w-listing-col-padding / 2;
+                }
+
+            }
+        }
+    }
+}
+/*
+- Define variables: color, font, size
+- Define "macros" which repeats
+
+- Adjust blog post listings on mobile
+- Adjust links on mobile
+*/
+
+.group:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear:both;
+    visibility:hidden;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+
+    p + h4 {
+        margin-top: 28px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+

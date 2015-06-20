@@ -1,0 +1,14 @@
+
+                <div class="post{% if article.pinned %} pinned{% endif %}">
+                    {% if article['title'] -%}
+                    <h2 class="title">
+                        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permanent Link to &quot;{{ article.title }}&quot;">{{ article.title }}</a>
+                    </h2>
+                    {% endif %}
+                    <h4 class="date">{{ article.date.strftime("%B %d,  %Y") }}</h4>
+
+                    {{ article.content }}
+
+                    <div class="clear"></div>
+                </div>
+

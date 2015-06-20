@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}{{ SITENAME }}{% if title %} &middot; ${ title | escape }{% endif %}{% endblock %}</title>
+        <!-- <link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico" />-->
+        {% if FEED_ALL_ATOM -%}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/ionicons.min.css" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy' rel='stylesheet' type='text/css'>
+        {% assets filters="less", output="css/screen.css", "less/screen.less" %}
+            <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+        {% endassets %}
+    </head>
+    <body>
+        <!-- Wrap all content, except footer. Needed for footer to stick to bottom. -->
+        <div id="wrap">
+            {% if SITENAME -%}
+            <div class="container page-header">
+                <div class="col-xs-12 col-sm-6">
+                    <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+                    {%- if SITESUBTITLE %}
+                    <h2>{{ SITESUBTITLE }}</h2>
+                    {%- endif %}
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <ul class="nav nav-links">
+                        {% for link in NAVIGATION_LINKS %}
+                        <li {%- if output_file == link.url ~ "index.html" %} class="active"{% endif %}><a href="{{ '/' ~ link.url }}" alt="{{output_file}}">{{ link.name }}</a></li>
+                        {% endfor -%}
+                    </ul>
+                </div>
+            </div> <!-- /.page-header -->
+            {%- endif %}
+
+            <!-- Content container -->
+            <div class="container">
+                <div id="content">
+                    {%- block content -%}{%- endblock %}
+                </div>
+            </div>
+        </div><!-- /#wrap -->
+
+        <footer id="footer">
+            <div class="social-icons icons-align">
+                <a href="https://github.com/jorabra"><i class="ion-social-github"></i></a>
+                <a href="https://twitter.com/jorabra"><i class="ion-social-twitter"></i></a>
+                <a href="https://instagram.com/jorabra"><i class="ion-social-instagram"></i></a>
+                <a href="https://plus.google.com/+JørgenAbrahamsen"><i class="ion-social-googleplus"></i></a>
+                <a href="http://no.linkedin.com/in/jorgenabrahamsen/"><i class="ion-social-linkedin"></i></a>
+            </div>
+        </footer>
+
+        {% include 'analytics.html' %}
+    </body>
+</html>

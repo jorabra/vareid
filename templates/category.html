@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &middot; {{ category }}{% endblock %}
+
+{% block content %}
+{% set date = None %}
+
+<div class="section-listing">
+    <ol class="group">
+        {% for article in articles_page.object_list -%}
+        <li>
+            {% include "article_stub.html" %}
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+
+{%- endblock %}
